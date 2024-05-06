@@ -6,6 +6,62 @@
     <title>Logistics Hub India</title>
     <link rel="icon" href="tit.jpg" type="image/x-icon">
     <style>
+       @media only screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .overlay {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align items towards the top */
+        height: 100vh; /* Set height to full viewport height */
+    }
+
+    .unlock {
+        font-size: 24px; /* Adjust font size */
+    }
+
+    .unlock-button {
+        padding: 10px 20px; /* Adjust padding */
+        font-size: 16px; /* Adjust font size */
+        position: absolute; /* Position absolutely */
+        left: 100px; /* Position towards the left side */
+        top: 200px; /* Adjust to bring it closer to the top */
+    }
+}
+
+
+
+
+
+       @media only screen and (max-width: 768px) {
+            /* Adjustments for smaller screens */
+            .image-container {
+                text-align: center; /* Center align the logo text and image */
+            }
+            .logo-text {
+                position: relative; /* Reset position to make it centered */
+                top: 0;
+                left: 0;
+                font-size: 30px; /* Reduce font size for smaller screens */
+            }
+            .quote {
+                display: none; /* Hide the quote on smaller screens */
+            }
+            img {
+                width: 100%; /* Make images fill the container */
+                height: auto; /* Maintain aspect ratio */
+            }
+            section {
+                padding: 10px; /* Reduce padding for sections */
+            }
+            .image-with-text {
+                flex-direction: column; /* Stack image and text vertically */
+                align-items: center; /* Center align items */
+            }
+            iframe {
+                max-width: 100%; /* Make embedded maps responsive */
+            }
+            /* Additional media queries and adjustments as needed */
+        }
         /* Basic styling */
         body {
             font-family: Arial, sans-serif;
@@ -76,18 +132,6 @@
             border-radius: 10px; /* Rounded corners */
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for better visibility */
         }
-        .rating-bar {
-            width: 100px; /* Adjust width of the bar */
-            background-color: #f2f2f2; /* Light gray background for the bar */
-            border-radius: 5px; /* Rounded corners */
-            margin-bottom: 10px; /* Add space below the bar */
-        }
-        .rating-bar-inner {
-            height: 10px; /* Height of the bar */
-            background-color: #4CAF50; /* Green color for the filled portion */
-            border-radius: 5px; /* Rounded corners */
-            width: 85%; /* Adjust based on the rating */
-        }
         .image-with-text {
             display: flex;
             align-items: center;
@@ -118,7 +162,7 @@
     display: block;
     text-decoration: none;
     color: #333; /* Dark text color */
-    padding: 5px 0;
+    padding: 2px 0;
     font-weight: bolder;
     margin-bottom: 5px; /* Add space between items */
     transition: background-color 0.3s ease; /* Smooth transition */
@@ -445,6 +489,7 @@ function toggleChatbot() {
         <a onclick="openRegPage()">Track Your Shipment</a>
         <br>
         <a href="#contact">Contact Us</a>
+        <br>
     </div>
     <div class="menu"><video autoplay class="lady" style="height: 200px; width: 100px; margin-left: 1350px;" src="introll.mp4"></video></div>
     <div class="menu">
