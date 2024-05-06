@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Hub India</title>
+    <link rel="icon" href="tit.jpg" type="image/x-icon">
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+            overflow: hidden; /* Prevent scrolling until unlocked */
+        }
+        nav {
+            background: linear-gradient(to right, #009FFF, #ec2F4B); /* Gradient background for navigation */
+            color: #fff;
+            padding: 10px;
+            text-align: center; /* Center align text */
+            position: fixed; /* Fixed position */
+            top: 0; /* Fixed at the top */
+            left: 0; /* Aligned to the left */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-right: 10px; /* Add space between items */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        nav a:hover {
+            background-color: #007ACC; /* Darker blue on hover */
+        }
+        section {
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            margin-bottom: 20px; /* Add space between sections */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+        }
+        section:nth-child(odd) {
+            background-color: #C9E6FF; /* Light blue background */
+        }
+        section:nth-child(even) {
+            background-color: #D9F0D9; /* Light green background */
+        }
+        footer {
+            background: linear-gradient(to right, #FF7E5F, #FFAE6C); /* Gradient background for footer */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        h1 {
+            font-size: 48px; /* Larger font size for the heading */
+            margin-top: 0; /* Remove default margin */
+        }
+        .image-container {
+            position: relative; /* Ensure relative positioning */
+        }
+        .logo-text {
+            position: absolute; /* Position absolutely */
+            top: 20px; /* Position from top */
+            left: 20px; /* Position from left */
+            font-size: 50px; /* Adjust font size */
+            font-weight: bold;
+            color: #fff; /* Text color */
+            background-color: black; /* Black background */
+            padding: 10px 20px; /* Add padding to the text */
+            border-radius: 10px; /* Rounded corners */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for better visibility */
+        }
+        .rating-bar {
+            width: 100px; /* Adjust width of the bar */
+            background-color: #f2f2f2; /* Light gray background for the bar */
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 10px; /* Add space below the bar */
+        }
+        .rating-bar-inner {
+            height: 10px; /* Height of the bar */
+            background-color: #4CAF50; /* Green color for the filled portion */
+            border-radius: 5px; /* Rounded corners */
+            width: 85%; /* Adjust based on the rating */
+        }
+        .image-with-text {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .image-with-text img {
+            border-radius: 50px;
+            margin-right: 10px;
+        }
+        .quote {
+            font-size: 16px;
+            margin-left: 10px;
+            color: #fff; /* Text color */
+            background-color: #007ACC; /* Blue background */
+            padding: 5px 10px; /* Add padding */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .menu {
+            position: absolute;
+            top: 100px; /* Adjust distance from the top */
+            left: 20px; /* Adjust distance from the left */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+            padding: 10px;
+}
+
+.new a {
+    display: block;
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    padding: 5px 0;
+    font-weight: bolder;
+    margin-bottom: 5px; /* Add space between items */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.new a:hover {
+    background-color: #ddd; /* Light gray background on hover */
+}
+
+/* CSS for the Back to Top button */
+#backToTopBtn {
+    display: none; /* Initially hide the button */
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    z-index: 1000; /* Ensure it's above other elements */
+    background-color: #007ACC; /* Blue background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+#backToTopBtn:hover {
+    background-color: #005d8e; /* Darker blue on hover */
+}
+.more {
+  background:none;
+  border:none;
+  color:#FFF;
+  font-family:Verdana, Geneva, sans-serif;
+  cursor:pointer;
+}
+.overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black overlay */
+            z-index: 1000; /* Ensure it's above other elements */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Unlock button */
+        .unlock {
+            font-size: 48px; /* Larger font size for the heading */
+            margin-top: 0; /* Remove default margin */
+            /* Additional styles for the pre-unlock heading */
+            font-weight: bold;
+            color: #007ACC; /* Bright blue color */
+            text-align: center; /* Center align text */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for better visibility */
+            border: 3px solid #007ACC; /* Border */
+            padding: 10px 20px; /* Padding */
+            border-radius: 10px; /* Rounded corners */
+            background: linear-gradient(to right, #009FFF, #ec2F4B); /* Gradient background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+        }
+        .unlock-button {
+            background: linear-gradient(to right, #009FFF, #ec2F4B); /* Gradient background for button */
+            color: #fff; /* White text color */
+            padding: 15px 30px; /* Padding */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 18px; /* Font size */
+            cursor: pointer; /* Cursor style */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        .unlock-button:hover {
+            background: linear-gradient(to right, #007ACC, #ec2F4B); /* Darker gradient on hover */
+        }
+        /* Hide the overlay by default */
+        .hidden {
+            display: none;
+        }
+        .lady {
+            position: absolute;
+            top: 0px; /* Adjust distance from the top */
+            left: 20px; /* Adjust distance from the left */
+            background-color: rgba(255, 255, 255, 0.5); /* Light gray background with opacity */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+            padding: 10px;
+}
+
+.chatbot-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+        }
+.new{
+    background-color: rgba(255, 255, 255, 0.5); /* Light gray background with opacity */
+    position: absolute;
+    top: 100px; /* Adjust distance from the top */
+    left: 20px; /* Adjust distance from the left */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+    padding: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div>
+            <h1 class="unlock" style="color: black; font-weight: bolder;">Welcome to Logistics Hub India</h1>
+            <center><button style="font-weight: bolder;" class="unlock-button" onclick="unlock()">Click to Continue</button></center>
+        </div>
+    </div>
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#consultancy">Logistics Consultancy</a>
+        <a href="#cold">Cold Chain Management</a>
+        <a href="#experties">Our Experties</a>
+        <a href="#contact">Contact Us</a>
+        <a onclick="openRegPage()">Track Your Shipment</a>
+    </nav><br><br>
+    <div class="image-container">
+        
+        <div class="logo-text">
+            <span>Logistics Hub India</span>
+            <span class="quote">One stop solution for all your LOGISTICS needs</span>
+        </div>
+        
+        <img style="height: 600px; width: 1550px;" src="1.jpeg">
+    </div>
+
+    <section id="about" style="background-color: #C9E6FF;">
+        <h2>About Us</h2><img onclick="about()" class="more" style="width: 30px; height: 30px; border-radius: 50px;" src="sound-speaker-icon-on-white-background-free-vector.jpg">
+        <div class="image-with-text">
+            
+            <p>"Logistics Hub India" is a leading logistics company providing
+                 comprehensive solutions for businesses across various industries (Pharmaceutical,
+                  FMCG & others). With our extensive expertise, network and advanced technology,
+                   we ensure seamless coordination, tracking, transportation, import, customs clearance,
+                    export, warehousing, documentation, delivery, analytics and distribution services as per industrial Good Distribution Practices.
+                     <br>
+                     <br> With our team's extensive experience & industrial expertise your organisation's
+                      logistics KPI like reduction of TAT ( Delivry OTIF % > 99%),
+                       increase in quality shipment's delivery (customer delight) & cost reduction are assured.
+                    We follow 7 R of Logistics. </p>
+    
+            <img style="width: 300px; height: 200px;" src="q.jpg" alt="About Image">
+        </div>
+    </section>
+    <section id="services" style="background-color: #D9F0D9;">
+        <h2>Our Services</h2><img onclick="service()" class="more" style="width: 30px; height: 30px; border-radius: 50px;" src="sound-speaker-icon-on-white-background-free-vector.jpg">
+        <div class="image-with-text">
+            <video style="border-radius: 50px;" width="300" height="auto" autoplay loop muted>
+                <source src="Logistics Intro Video.mp4" type="video/mp4">
+            </video>
+            <p>
+                <ul>
+                    <li>Cold Supply Chain Management (as per Good Distribution Practices)</li>
+                    <li>Import, Export, Customs Clearance, Tracking, Delivery</li>
+                    <li>Shipment Documentation as per CDSCO GDP Guidelines</li>
+                    <li>Domestic Transportation</li>
+                    <li>Freight Forwarding Solution</li>
+                    <li>Warehousing & Inventory Management</li>                
+                    <li>Third-Party Logistics (3PL)</li>
+                    <li>Technological solutions, Anlytics, KPI, Dynamic dashboard</li>
+                </ul>
+            </p>
+            <img style="height: 250px; width: 250px; margin-left: 200px;" src="e.jpg" alt="Services Image">
+        </div>
+    </section>
+    <section id="experties" style="background-color: #f0d9d9;">
+        <h2>Our Expertise</h2>
+<img style="height: 600px; width: 1500px; border-radius: 30px;" src="Screenshot 2024-05-04 131552.png">
+    </section>
+    
+    
+    <section id="consultancy" style="background-color: #C9E6FF;">
+        <h2>Our Logistics & Consultancy Services</h2><img onclick="consultancy()" class="more" style="width: 30px; height: 30px; border-radius: 50px;" src="sound-speaker-icon-on-white-background-free-vector.jpg">
+        <div class="image-with-text">
+            
+            <p>Good day! You are on the right platform!<br>
+                <br>
+            Do let us know when your next export/import/domestic shipment requirement will be there/planned, so we can assist in any kind of services/activities as per your<br> logistics requirements.
+            Our scope of services include consultancy/service for:
+            Ocean Freight, LCL, FCL, Open Top Container, Flatrack Container,<br> Super Rack Container, Reefer Container, Cold Chain Logistics, Perishable Logistics, Hazardous Logistics, Iso Tank Logistics, Liquid Transportation,<br> Flexi Tank Logistics, Vessel Chartering, Breakbulk Shipping, Bulk Shipping, MAFI Shipping, Barging, Coastal Shipping, Air Freight, Project Forwarding, 3PL, 4PL,<br> 5PL, Rail Movement, CFS activities, FTWZ, ICD, Custom Clearance, Reverse Logistics, E-commerce Logistics, Green Logistics, Cross Border, Lead Logistics,<br> Logistics Parks, Warehousing, Full Load Transportation, Part Load Transportation, Fleet Management, Complete Domestic Transportation, Special Economic Zone,<br> Crane Hiring, Movers and Relocation, Fulfillment Centers, Pallet Renting and trading, Trade Finance, Cargo and Parcel Dropbox, Cargo and Parcel Storage, Inventory Management, Shipping Container Buying and Selling, Shipping Container Trading, Equipment Sharing, Equipment Renting, Heavy Equipment Renting, Packaging, Baggage Shipping, Global Insurance, Personal Goods Shipping, Scrap Movement, Supply Chain Consultancy, Assisting Exporters and Importers in Getting<br> Clients in India and Overseas, Sourcing Products assistance, Factory Inspections, All Types of Surveys, Product Inspections, Port Handling Consultancy, Worldwide Shipping.
+            Looking forward to your upcoming logistics inquiries/RFQ’s/Tenders/Nominations/Rate requests.</p>
+            <img style="width: 250px; height: 250px;" src="w.jpg" alt="Consultancy Image">
+        </div>
+    </section>
+    <section id="cold" style="background-color: #ebcfeb">
+        <h2>Our Cold Chain Management</h2><img onclick="cold()" class="more" style="width: 30px; height: 30px; border-radius: 50px;" src="sound-speaker-icon-on-white-background-free-vector.jpg">
+        <div class="image-with-text">
+            1.	Ambient controlled temperature, + 15° to +25°C, +2° to 8°C, below – 30°C, Below - 50°C or any other temperature range requirements.<br>
+            2.	Shipments on gel packs, dry ice, liquid nitrogen <br>
+            3.	Calibrated temperature data logger to monitor temperature during transit time.<br>
+            4.	Validated shipper packaging (Active & passive) with different technologies. <br>
+            5.	Refrigerated (+ 15° to +25°C, +2° to 8°C) trucks with data logger.<br>
+            6.	20 & 40 feet Refer FCL (Full container Load) container for sea shipments.<br>
+            7.	Across the globe (NA, LA, EU, ME, AF, APAC)   
+
+            
+            <img style="width: 350px; height: 250px; margin-left: 200px;" src="images.jpg" alt="Consultancy Image">
+        </div>
+    </section>
+    <section id="contact" style="background-color: #D9F0D9;">
+        <h2>Contact Us</h2><img onclick="contacts()" class="more" style="width: 30px; height: 30px; border-radius: 50px;" src="sound-speaker-icon-on-white-background-free-vector.jpg">
+        <p>If you have any inquiries or need assistance, feel free to contact us:</p>
+        <a style=" font-weight: bolder; background-color: yellow; border-radius: 15px; width: 500px; height: 200px; font-size: 35px;" href="mailto:logisticshubindia@gmail.com">EMAIL US!</a>
+        <p>Email: logisticshubindia@gmail.com</p>
+        <div style="float: right;">
+            <img onclick="openRegPage()" style="width: 220px; height: 70px; cursor: pointer;" src="1671216852277.png">
+        </div>
+        <a style="background-color: yellow; font-weight: bolder; font-size: 20px;" href="tel:9032195407">Call us at 9032195407</a>
+        <p>Phone: +91 9032195407</p>
+        <p>Our Locations: Hyderabad & Gurgaon (Head Office)</p>
+    </section>
+    <section style="background-image: linear-gradient(white, black);">
+    <center> 
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14866.280189155848!2d77.00943661007678!3d28.45017513241951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d183047c85bf7%3A0x7fb85277516fd21b!2sRam%20Nagar%20Rd%2C%20Model%20Town%2C%20Sector%2011%2C%20Gurugram%2C%20Haryana%20122022!5e0!3m2!1sen!2sin!4v1714299151767!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60881.97764638278!2d78.45412784744723!3d17.501612151516543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9af4fd761e0b%3A0x36718daaf9b3af0e!2sAlwal%2C%20Secunderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1714305993318!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </center><br><br><br><br><br><br><br></section>
+    <footer>
+        <p>&copy; 2024 Logistics Hub India. All rights reserved.</p>
+        <!-- Back to Top Button -->
+        <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">Back to Top</button>
+    </footer>
+    <script>
+        function openRegPage(){
+            window.open("reg.html", "_blank");
+        }
+        function scrollToTop() {
+            // Scroll smoothly to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+        window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("backToTopBtn").style.display = "block";
+    } else {
+        document.getElementById("backToTopBtn").style.display = "none";
+    }
+}
+let abt = new Audio('aboutus.mp3');
+function about(){
+    abt.play();
+}
+let ser = new Audio('service.mp3');
+function service(){
+    ser.play();
+}
+let con = new Audio('consultancy.mp3');
+function consultancy(){
+    con.play();
+}
+let col = new Audio('cold.mp3');
+function cold(){
+    col.play();
+}
+let contact = new Audio('contact.mp3');
+function contacts(){
+    contact.play();
+}
+function unlock() {
+            // Hide the overlay when the button is clicked
+            document.getElementById("overlay").classList.add("hidden");
+            // Allow scrolling
+            document.body.style.overflow = "auto";
+        }
+// Define the function to play the intro audio
+    // Modify the unlock function to play the intro audio before hiding the overlay
+    function unlock() {
+    // Play the intro audio
+    
+    // Get the video element by class name
+    let video = document.querySelector('.lady');
+
+    // Play the video
+    video.play();
+    
+    // Hide the overlay when the button is clicked
+    document.getElementById("overlay").classList.add("hidden");
+    
+    // Allow scrolling
+    document.body.style.overflow = "auto";
+}
+function toggleChatbot() {
+            var chatbotPopup = document.getElementById("chatbotPopup");
+            // Toggle the display property to show/hide the chatbot popup
+            if (chatbotPopup.style.display === "none") {
+                chatbotPopup.style.display = "block";
+            } else {
+                chatbotPopup.style.display = "none";
+            }
+        }
+
+    </script>
+
+    <div style="margin-top: 100px; width: 300px; height: 300px;" class="new">
+        <a href="#about">About Us</a>
+        <br>
+        <a href="#services">Services</a>
+        <br>
+        <a href="#consultancy">Logistics Consultancy</a>
+        <br>
+        <a href="#experties">Our Experties</a>
+        <br>
+        <a href="#cold">Cold Supply Chain</a>
+        <br>
+        <a onclick="openRegPage()">Track Your Shipment</a>
+        <br>
+        <a href="#contact">Contact Us</a>
+    </div>
+    <div class="menu"><video autoplay class="lady" style="height: 200px; width: 100px; margin-left: 1350px;" src="introll.mp4"></video></div>
+    <div class="menu">
+        <img id="chatbotIcon" class="lady" style="height: 50px; width: 50px; border-radius: 50px; margin-left: 1250px; cursor: pointer;" src="robot-chat-or-chat-bot-logo-modern-conversation-automatic-technology-logo-design-template-vector.jpg" onclick="toggleChatbot()">
+    </div>
+
+    <!-- Chatbot popup -->
+    <div id="chatbotPopup" class="chatbot-popup">
+        <!-- Chatbot interface content goes here -->
+        <!-- You can use an iframe to embed a chatbot widget or implement your own chatbot UI -->
+        <iframe width="300" height="400" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/ea66d2fb-93f2-438d-81fe-e4fcc2084996"></iframe>
+    </div>
+    <div class="menu">
+        <img class="lady" onclick="openRegPage()" style="height: 50px; margin-top: 100px; width: 50px; border-radius: 50px; margin-left: 1250px; cursor: pointer;" src="unnamed.png">
+    </div>
+    <span class="menu" style="margin-left: 540px; margin-top: 400px; width: 470px;">
+        <input placeholder="Track Your Shipment Here" style="height: 30px; width: 400px;">
+        <img onclick="openRegPage()" style="width: 50px; height: 50px; border-radius: 10px; cursor: pointer;" src="unnamed (1).png">
+    </span>
+
+
+</body>
+</html>
